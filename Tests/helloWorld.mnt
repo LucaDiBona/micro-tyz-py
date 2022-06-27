@@ -1,0 +1,5 @@
+__print__(`Hello, world!`)
+
+__print__ ( `Hello, world!` )
+
+(__print__ `Hello, world!`)
