@@ -1,0 +1,7 @@
+= MicroTyz
+:description: The official MicroTyz docs
+:toc: left
+:toclevels: 2
+:doctype: book
+
+include::Intro/intro.adoc

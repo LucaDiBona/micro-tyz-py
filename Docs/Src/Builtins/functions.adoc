@@ -1,0 +1,44 @@
+=== Builtin Functions
+
+The following functions are all builtin and interpreted or compiled directly.
+In the explanations below, `<?>` refers to an optional value that may or may not be provided.
+`<&>` refers to an input that is passed by reference as opposed to value
+
+==== Variables
+----
+__initVar__(<name:str>,<value>,<?type:type>) -> <value>
+----
+
+Creates a new variable and gives it a value
+
+----
+__setVar__(<&var>,<value>) -> <value>
+----
+
+Sets an existing variable to a new value
+
+----
+__id__(<&var>) -> <id:int>
+----
+
+Get the id of a variable
+
+----
+__name__(<&var>) -> <name:str>
+----
+
+Get the name of a variable
+
+----
+__type__(<&var>) -> <type:type>
+----
+
+Get the type of a variable
+
+----
+__del__(<&var>) -> Null
+----
+
+Deletes a variable
+
+
