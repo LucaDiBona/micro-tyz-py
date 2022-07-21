@@ -1,0 +1,80 @@
+== Examples
+
+Provided are a few examples of MicroTyz code.
+
+=== Hello World
+
+This is the MicroTyz hello world implementation.
+
+----
+__assign__(`main`,
+    __func__(__list__(),
+        {
+            __debugPrintLn__(`Hello, world!`)
+        }
+        ))
+----
+
+==== Explanation
+
+Like all MicroTyz, the code is made up of function calls, blocks, and literals.
+MicroTyz is entirely whitespace insensitive, although tabs are not allowed.
+Newlines are entirely ignored, but each language construct is easily seperable.
+We can step through these functions one at a time.
+
+===== `__assign__`
+
+`__assign__` assigns a value to a variable.
+We assign a function to a variable named `main`.
+Here `\`main\`` is a raw string literal - MicroTyz does not provide escape characters.
+Upon running the file, the `main` function is called.
+
+===== `__func__`
+
+`__func__` is a constructor that produces a function.
+It takes in a list of variable assignments and a code block,
+
+
+===== `__list__`
+
+`__list__` is a constructor that produces a list.
+Here it is empty because our `main` function takes no arguments
+
+===== `{}`
+
+`{}` encloses a code block.
+Scoping rules apply here, and the block returns the value of the last expression (a function call, a literal, or another block) in the block.
+
+===== `__debugPrintLn__`
+
+`__debugPrintLn__` prints a string to the std output followed by a newline.
+
+
+=== Add Three
+
+This program adds together 1, 2 and 3, and prints this.
+
+-----
+__assign__(`main`,
+    __func__(__list__(),
+        {
+            __debugPrintLn__(
+                __toStr__(addThree(1,2,3))
+            )
+        }
+        ))
+__assign__(`addThree`,
+    __func__(__list__(`x`,`y`,`z`),
+        {
+            __assign__(`w`,__add__(x,y))
+            __add__(w,z)
+        }))
+-----
+
+-----
+main := () -> addThree(1,2,3) |> printLn
+addThree := (x,y,z) -> {
+    w := x + y
+    w + z
+}
+------

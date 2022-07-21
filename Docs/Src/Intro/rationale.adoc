@@ -1,0 +1,37 @@
+== Rationale
+
+MicroTyz is intended as an intermediate representation or IR - it was written as the IR for the Tyz language but as an open source project it can be used as the target for other languages too.
+You _could_ handwrite MicroTyz but except for educational purposes this is not recommended. 
+This specification is thus largely targeted at those providing tools that compile to MicroTyz, but also provides a discussion of the internals of MicroTyz.
+
+=== Aims
+
+MicroTyz is *simple*.
+The syntax of MicroTyz is kept to a minimum (in fact the only symbols with special meaning are `(`,`)`,`{`,`}`,`,`and `\``).
+This makes MicroTyz easy to parse and reason about.
+Syntax sugar is avoided.
+
+MicroTyz is *AST-like*.
+The structure of MicroTyz mimics the AST.
+Again this makes parsing easier.
+Printing generated MicroTyz is akin to pretty-printing an AST.
+
+MicroTyz is *specific*.
+There is largely one way to do things in MicroTyz.
+This makes it easy to reason about MicroTyz.
+
+MicroTyz is *reliable*.
+Typing, immutablility, purity etc.
+
+=== Where is MicroTyz appropriate?
+
+MicroTyz is targeted towards building applications, with a specific focus on reliability whilst being easy to write.
+It can also be used as a scripting language, both standalone and embedded into markup languages.
+
+
+=== Where isn't MicroTyz appropriate?
+
+MicroTyz explicity does not provide capabilities for bit-level manipulation for safety purposes.
+This makes it unsuitable for operating systems development, tiny embedded systems and at current applications where performance is highly critical (providing better optimizations in the compiler will hopefully alleivate this latter issues).
+
+At the present time, MicroTyz is not suitable for web development, although this is a goal.
