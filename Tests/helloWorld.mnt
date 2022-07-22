@@ -1,5 +1,1 @@
-__print__(`Hello, world!`)
-
-__print__ ( `Hello, world!` )
-
-(__print__ `Hello, world!`)
+__assign__(`main`,__lambda__())
