@@ -39,3 +39,12 @@ include `<relative filepath>` : include the named file
 macro `<prec><open><macro><close><open><replacement><close>` : declare a macro with the relevant precedence 
 
 stage `<stage><open><code><close>` : code is run in staged order, with the result of the stage being inserted into the code // look to see how this is usually done
+
+tyz:
+
+setFlag #
+setOpen {
+setClose }
+include .../tyz/lib/std/enter.tyz
+
+
