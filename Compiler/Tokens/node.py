@@ -1,4 +1,7 @@
-import functions,heap,types_
+import functions
+import heap
+import types_
+import heap
 
 class Node():
 
@@ -126,9 +129,4 @@ x.eval_()
 z=FunctionCall("print",[StringLiteral("Hello, world!")])
 z.eval_()
 
-
-"""
-print := (toPrint) -> {__print__(toPrint)}
-print(`Hello, world!`)
-"""
 

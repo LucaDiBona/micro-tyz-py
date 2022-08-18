@@ -24,3 +24,11 @@ class Str_(Type_):
 
     def __str__(self):
         return(self.val)
+
+class Function_(Type_):
+
+    def __init__(self,val):
+        self.val = val
+
+    def call_(self,args:list):
+        self.val.call_(args)

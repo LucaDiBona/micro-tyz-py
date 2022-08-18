@@ -118,9 +118,6 @@ def getLiterals(chunks):
             return (i[0][0] == "e" or i[0][:2] in ["eb","eo","ex"])
 
 
-    print(boxAllowed("0"))
-    print("e0"[-2:])
-    print(boxAllowed("0e0"))
 
 
     #~~~~~STRINGS
@@ -223,6 +220,7 @@ def tokenise(text:str):
     return(chunks)
 
 
-print(tokenise(".12.2 5..3"))
 
 #TODO x!! is equivalent to x = !x
+
+#TODO rewrite this to simplify - only handle basic cases and only allow a few symbols

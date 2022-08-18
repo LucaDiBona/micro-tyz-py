@@ -2,7 +2,7 @@
 
 The following functions are all builtin and interpreted or compiled directly.
 In the explanations below, `<?>` refers to an optional value that may or may not be provided.
-`<&>` refers to an input that is passed by reference as opposed to value
+`<&>` refers to an input that is passed by reference as opposed to value - if a block this is not processed but rather passed as data.
 
 ==== Variables
 ----

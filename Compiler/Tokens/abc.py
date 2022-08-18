@@ -1,10 +1,8 @@
-stuff = ["a","ab","abc","abcd","abcde"]
+tokens = [0,1,2,3,4,5,6,7,8,9]
+i =0
+def curVal():
+    return(tokens[i])
 
-def isIn(str):
-    return str in ["a", "b", "c"]
-
-for x in stuff:
-    print(all(isIn(i) for i in x))
-
-print("0132e0"[-2:])
-print("abc"[:2])
+x =curVal()
+i=2
+print(x)

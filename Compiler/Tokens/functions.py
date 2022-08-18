@@ -28,10 +28,11 @@ def add_(leftInt,rightInt):
 def assign_(name,val):
     heap.setVal(name,val)
 
+
 BUILTINS = {
     "__print__": Builtin("__print__",["str"],print_),
     "__add__": Builtin("__add__",["leftInt","rightInt"],add_),
-    "__assign__":Builtin("__assign__",["name","val"],assign_)
+    "__assign__":Builtin("__assign__",["name","val"],assign_),
 }
 
 

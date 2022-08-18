@@ -1,0 +1,30 @@
+program: exprs? <EOF>;
+
+exprs: expr (";" expr)*;
+
+expr: funcCall
+    | block
+    | identifier
+    | literal;
+
+funcCall: identifier "(" args? ")";
+
+args: expr ("," expr)*:
+
+block: "{" exprs? "}";
+
+identifier: alpha (alpha|num)*;
+
+alpha: a...z|A...Z|_
+num:0...9
+
+literal: string
+        | int;
+
+string: "`" <any char except "`">* "`";
+int: num+;
+
+
+
+
+
