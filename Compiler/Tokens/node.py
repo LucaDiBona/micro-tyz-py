@@ -1,7 +1,6 @@
-import functions
-import heap
-import types_
-import heap
+import Tokens.functions as functions
+import Tokens.heap as heap
+import Tokens.types_ as types_
 
 class Node():
 

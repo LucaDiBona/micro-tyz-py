@@ -1,7 +1,10 @@
 import sys
+import os
 from Tokens.tokeniser import tokenise
 from Tokens.parse import parse
 
+print(sys.path[0])
+f = open("Compiler/helloWorld.mnt")
 def main(args:list):
 
     if not args:
@@ -14,4 +17,5 @@ def main(args:list):
     parse(tokenise(text))
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main(["Compiler/helloWorld.mnt"])
+    ##main(sys.argv[1:])

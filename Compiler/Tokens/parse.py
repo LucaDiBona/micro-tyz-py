@@ -1,7 +1,7 @@
-import node
+import Tokens.node as node
 
-def parse():
-    pass
+def parse(tokens:list):
+    return(parseExpr(tokens))
 
 def parseExpr(tokens:list):
 
@@ -82,6 +82,3 @@ def parseExpr(tokens:list):
         i += 1
 
 
-
-x = parseExpr([("foo","ID"),("(","SYMBOL"),("bar","ID"),(")","SYMBOL"),("EOF","EOF")])
-print(x)

@@ -1,4 +1,4 @@
-import heap
+import Tokens.heap as heap
 
 class Func():
 
