@@ -7,6 +7,21 @@ eg foreach i in list {
         println("same")
     }}
 
+## Blocks
+
+microtyz synatx:
+
+`__block__{}` creates a block - returns value of last expr
+`__blockScope__{}` creates a scoped block - creates a new scope and a block within this scope
+
+
+tyz syntax:
+
+`{}` -> block scope outside loops / if exprs etc.
+`{@<blockname>}` -> named scope block
+`{@<property>:<blockname>}` -> apply property to block
+
+macro for defining custom blocktypes - eg non scoped block
 
 macros:
 
@@ -36,7 +51,7 @@ setClose `<s>` : as above
 
 include `<relative filepath>` : include the named file
 
-macro `<prec><open><macro><close><open><replacement><close>` : declare a macro with the relevant precedence 
+macro `<prec><open><macro><close><open><replacement><close>` : declare a macro with the relevant precedence
 
 stage `<stage><open><code><close>` : code is run in staged order, with the result of the stage being inserted into the code // look to see how this is usually done
 

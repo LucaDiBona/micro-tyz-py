@@ -1,17 +1,15 @@
-program: exprs? <EOF>;
+program: exprs <EOF>;
 
-exprs: expr (";" expr)*;
+exprs: expr*;
 
 expr: funcCall
     | block
     | identifier
     | literal;
 
-funcCall: identifier "(" args? ")";
+funcCall: identifier "(" exprs ")";
 
-args: expr ("," expr)*:
-
-block: "{" exprs? "}";
+block: identifier "{" exprs "}";
 
 identifier: alpha (alpha|num)*;
 

@@ -1,5 +1,4 @@
 import sys
-import os
 from Tokens.tokeniser import tokenise
 from Tokens.parse import parse
 
@@ -14,7 +13,10 @@ def main(args:list):
     with open(args[0]) as f:
         text = f.read()
 
-    parse(tokenise(text))
+    x = parse(tokenise(text))
+    print(x.print_())
+    x.eval_()
+
 
 if __name__ == "__main__":
     main(["Compiler/helloWorld.mnt"])

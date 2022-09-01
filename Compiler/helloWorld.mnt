@@ -1,1 +1,1 @@
-__print__(`Hello, world!`)
+__block__{__assign__(`x` `Hello, world!`) __print__(x)}

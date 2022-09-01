@@ -2,6 +2,8 @@ import Tokens.functions as functions
 import Tokens.heap as heap
 import Tokens.types_ as types_
 
+nesting = 0
+
 class Node():
 
     def __init__(self,name:str):
@@ -10,10 +12,17 @@ class Node():
     def eval_(self):
         raise(NotImplementedError)
 
+    def print_(self):
+        raise(NotImplementedError)
+
 class Block(Node):
 
-    def __init__(self,contents:list[Node]):
-        self.end = contents.pop()
+    def __init__(self,blockName:str,contents:list[Node]):
+        self.isScope = (blockName == "__blockScope__") #mess about with this if we want more than two kinds of block
+        if contents:
+            self.end = contents.pop()
+        else:
+            self.end = NullLiteral()
         self.contents = contents
         super().__init__("Block")
 
@@ -22,16 +31,32 @@ class Block(Node):
         self.contents.insert(pos,expr)
 
     def eval_(self):
-        heap.enterBlock()
+        if self.isScope:
+            heap.enterBlock()
         [i.eval_() for i in self.contents]
         retVal = self.end.eval_()
-        heap.exitBlock()
+        if self.isScope:
+            heap.exitBlock()
         return(retVal)
+
+
+    def print_(self):
+        retStr = "Block: {\n"
+        for i in self.contents:
+            retStr += "    "
+            retStr += i.print_()
+            retStr += "\n"
+        retStr += self.end.print_()
+        retStr += "\n}"
+        return(retStr)
 
 class Literal(Node):
 
     def __init__(self,name:str):
         super().__init__(name)
+
+    def print_(self):
+        return("Literal: " + self.name)
 
 class StringLiteral(Literal):
 
@@ -48,6 +73,15 @@ class IntLiteral(Literal):
 
     def eval_(self):
         return(types_.Int_(self.name))
+
+class NullLiteral(Literal): #actually __block__{}
+
+    def __init__(self):
+        super().__init__("Null")
+
+    def eval_(self):
+        return(types_.Null_())
+
 
 class Lambda(Literal):
 
@@ -84,6 +118,16 @@ class FunctionCall(Node):
         # lookup value
         return(Variable(self.name).eval_().call_(argVals))
 
+    def print_(self):
+        retStr = "Function Call: " + self.name + "{\n"
+        print(self.args)#why is this sometimes [None] not just []
+        for i in self.args:
+            retStr += "    "
+            retStr += i.print_()
+            retStr += "\n"
+        retStr += "}"
+        return(retStr)
+
 
 class Variable(Node):
 
@@ -92,6 +136,9 @@ class Variable(Node):
 
     def eval_(self):
         return(heap.getVal(self.name))
+
+    def print_(self):
+        return("Variable: " + self.name)
 
 
 """
@@ -123,9 +170,5 @@ y.eval_()
  """
 
 
-x = FunctionCall("__assign__",[StringLiteral("print"),Lambda([StringLiteral("toPrint")],Block([FunctionCall("__print__",[Variable("toPrint")])]))])
-x.eval_()
-z=FunctionCall("print",[StringLiteral("Hello, world!")])
-z.eval_()
 
 
