@@ -141,33 +141,12 @@ class Variable(Node):
         return("Variable: " + self.name)
 
 
-"""
-w=FunctionCall("__assign__",[StringLiteral("test"),IntLiteral("0")])
-w.eval_()
-test=Variable("test")
-print(heap.heap)
-print(test.eval_())
 
-x =FunctionCall("__assign__",[StringLiteral("x"),test])
-x.eval_()
-h = heap.heap
-print(heap.heap) """
 
 
 #TODO allow functions as first class objects - assigning them
 #TODO allow assigning to a variable
 
-#y = Block([FunctionCall("__print__",[StringLiteral("test")]),FunctionCall("__add__",[IntLiteral("2"),IntLiteral("2")])])
-#print(y.eval_())
-"""
-
-x = FunctionCall("__assign__",[StringLiteral("x"),StringLiteral("Hello, world!")])
-x.eval_()
-y = FunctionCall("__print__",[Variable("x")])
-y.eval_()
-
-
- """
 
 
 
