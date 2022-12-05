@@ -1,8 +1,5 @@
-tokens = [0,1,2,3,4,5,6,7,8,9]
-i =0
-def curVal():
-    return(tokens[i])
+x = [0,1,2]
 
-x =curVal()
-i=2
-print(x)
+li = [i*2 for i in x]
+
+print(li)
